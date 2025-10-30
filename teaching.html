@@ -4,70 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Vaddi Radhesyam</title>
+    <title>Dr. V Radhesyam`s Teaching</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <style>
-        #mobile-menu {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-        }
-
-        #mobile-menu a {
-            padding: 1rem;
-            text-align: center;
-            font-size: 1.2rem;
-            border-bottom: 1px solid #eee;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        #mobile-menu a:hover {
-            background-color: #f0f0f0;
-        }
-
-        #mobile-menu.open {
-            display: flex;
-            animation: slideDown 0.3s ease-in-out;
-        }
-
-        .desktop-menu {
-            display: flex;
-        }
-
-        @media (max-width: 768px) {
-            .desktop-menu {
-                display: none;
-            }
-
-            #menu-btn {
-                display: block;
-            }
-
-            .desktop-menu.show-on-mobile {
-                display: none;
-            }
-        }
-
-        @media (min-width: 769px) {
-            #menu-btn {
-                display: none;
-            }
-        }
-
-        @keyframes slideDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="text-gray-800 font-sans bg-white flex flex-col min-h-screen">
@@ -100,7 +40,7 @@
         </div>
     </nav>
 
-    <div class="px-[5%] mt-20 mb-20">
+    <div class="px-[5%] mt-20">
         <h2 class="text-2xl font-semibold mb-6">Professional Experience</h2>
         <div class="relative">
             <div class="absolute left-0 top-0 h-full w-1 bg-gray-300"></div>
@@ -146,27 +86,43 @@
                 </div>
             </div>
         </div>
+
+        <h2 class="text-2xl font-semibold mt-12 mb-6">Academic Strengths</h2>
+        <div class="space-y-4">
+            <h3 class="text-lg font-semibold">• Subjects Taught</h3>
+            <ul class="list-disc ml-8">
+                <li>Image Processing</li>
+                <li>Computer Vision</li>
+                <li>Machine Learning</li>
+                <li>C Programming</li>
+                <li>Python Programming</li>
+                <li>Data Structures and Analysis of Algorithms</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mt-4">• Novel Teaching & Learning Techniques Adopted</h3>
+            <ul class="list-disc ml-8">
+                <li>POGIL (Process-Oriented Guided Inquiry Learning)</li>
+                <li>Learning by Doing</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mt-4">• Involvement in Curriculum Design</h3>
+            <ul class="list-disc ml-8">
+                <li>Developed syllabus for Data Structures</li>
+                <li>Developed syllabus for Computer Vision</li>
+                <li>Developed syllabus for C Programming</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mt-4">• Technical Skills</h3>
+            <ul class="list-disc ml-8">
+                <li>C, C++, Python</li>
+                <li>Matlab</li>
+                <li>Latex</li>
+                <li>QGIS</li>
+                <li>Google Earth Engine</li>
+            </ul>
+        </div>
     </div>
-
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const desktopMenu = document.getElementById('desktop-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            desktopMenu.classList.toggle('show-on-mobile', mobileMenu.classList.contains('open'));
-        });
-    </script>
-
-    <div id="footer-placeholder"></div>
-    <script>
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-    </script>
 </body>
-
+<div id="footer-placeholder"></div>
+<script src="script.js"></script>
 </html>

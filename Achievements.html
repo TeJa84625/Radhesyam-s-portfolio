@@ -4,39 +4,115 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Achievements</title>
-    <script src="https://cdn.tailwindcss.com"> </script>
+    <title>Dr. Vaddi Radhesyam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        #mobile-menu {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        #mobile-menu a {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #eee;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        #mobile-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        #mobile-menu.open {
+            display: flex;
+            animation: slideDown 0.3s ease-in-out;
+        }
+
+        .desktop-menu {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            #menu-btn {
+                display: block;
+            }
+
+            .desktop-menu.show-on-mobile {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            #menu-btn {
+                display: none;
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body class="text-gray-800 font-sans bg-white flex flex-col min-h-screen">
+
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
+        <div class="flex flex-wrap items-center justify-between py-4 px-10 relative">
+            <div class="font-semibold text-lg" id="profile-name-nav">Dr. Vaddi Radhesyam</div>
+            <button id="menu-btn" class="block md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div id="desktop-menu" class="desktop-menu md:flex md:w-auto flex-row space-x-6 mt-4 md:mt-0">
+                <a href="index.html" class="text-gray-600 hover:text-black transition">Home</a>
+                <a href="teaching.html" class="text-gray-600 hover:text-black transition">Teaching</a>
+                <a href="projests.html" class="text-gray-600 hover:text-black transition">Projects</a>
+                <a href="achievements.html" class="text-black relative pb-1 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-black after:left-0 after:-bottom-[2px]">Achievements</a>
+                <a href="publications.html" class="text-gray-600 hover:text-black transition">Publications</a>
+            </div>
+
+            <div id="mobile-menu" class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="teaching.html">Teaching</a>
+                <a href="projests.html">Projects</a>
+                <a href="achievements.html">Achievements</a>
+                <a href="publications.html">Publications</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="px-[5%]">
 
-        <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
-            <div class="flex flex-wrap items-center justify-between py-4 px-10">
-                <div class="font-semibold text-lg">Dr. Vaddi Radhesyam</div>
-
-                <button id="menu-btn" class="block md:hidden text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-
-                <div id="menu" class="hidden w-full md:flex md:w-auto flex-col md:flex-row md:space-x-6 mt-4 md:mt-0">
-                    <a href="index.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Home</a>
-                    <a href="teaching.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Teaching</a>
-                    <a href="projests.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Projects</a>
-                    <a href="achievements.html"
-                        class="text-black relative pb-1 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-black after:left-0 after:-bottom-[2px]">Achievements</a>
-                    <a href="publications.html"
-                        class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Publications</a>
-                </div>
-            </div>
-        </nav>
-
-
     </div>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopMenu = document.getElementById('desktop-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            desktopMenu.classList.toggle('show-on-mobile', mobileMenu.classList.contains('open'));
+        });
+    </script>
 </body>
 <div id="footer-placeholder"></div>
 <script>
@@ -47,4 +123,5 @@
         });
 </script>
 <script src="footer.js"></script>
+
 </html>

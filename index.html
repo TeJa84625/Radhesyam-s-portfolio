@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Vaddi Radhesyam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
+        <div class="flex flex-wrap items-center justify-between py-4 px-10">
+            <div class="font-semibold text-lg" id="profile-name-nav">Dr. Vaddi Radhesyam</div>
+
+            <button id="menu-btn" class="block md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div id="menu" class="hidden w-full md:flex md:w-auto flex-col md:flex-row md:space-x-6 mt-4 md:mt-0">
+                <a href="#"
+                    class="text-black relative pb-1 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-black after:left-0 after:-bottom-[2px]">Home</a>
+                <a href="/teaching.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Teaching</a>
+                <a href="/projests.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Projects</a>
+                <a href="/Achievements.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Achievements</a>
+                <a href="/Publications.html" class="text-gray-600 hover:text-black transition mt-2 md:mt-0">Publications</a>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<body class="text-gray-800 font-sans bg-white flex flex-col min-h-screen">
+
+    <div class="px-[5%]">
+
+        <main class="flex-1 flex flex-col gap-10 pt-28">
+
+            <section class="flex flex-wrap gap-10">
+                <div class="flex-1 min-w-[300px] flex flex-col items-center text-center justify-center">
+                    <img id="profile-img" src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png" alt="Profile"
+                        class="w-40 h-40 rounded-full object-cover mb-4">
+                    <h1 id="profile-name" class="text-3xl font-semibold">Dr. Vaddi Radhesyam</h1>
+                    <h2 id="profile-position" class="text-xl text-gray-600">Assistant Professor</h2>
+                    <h3 id="profile-university" class="text-gray-600">SAHE</h3>
+                    <h2 id="university-location" class="text-gray-600">Vijayawada</h2>
+
+
+                    <div class="flex gap-4 mt-4" id="profile-links">
+                    </div>
+
+                </div>
+
+                <div class="flex-1 min-w-[300px]">
+                    <div class="mb-8">
+                        <h2 class="text-lg font-semibold border-b border-gray-300 pb-1 mb-3">Biography</h2>
+                        <p id="profile-biography" class="leading-relaxed">
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-lg font-semibold border-b border-gray-300 pb-1 mb-3">Interests</h3>
+                            <ul id="interests-list" class="list-disc pl-5 space-y-1">
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold border-b border-gray-300 pb-1 mb-3">Education</h3>
+                            <ul id="education-list" class="space-y-1">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <h2 class="text-lg font-semibold border-b border-gray-300 pb-1 mb-3">Professional Services</h2>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold border-b border-gray-300 pb-1 mb-3">Memberships</h3>
+                    <ul id="memberships-list" class="list-disc pl-5 space-y-1">
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold border-b border-gray-300 pb-1 mb-3">Editorial Board Member</h3>
+                    <ul id="editorial-list" class="list-disc pl-5 space-y-1">
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+<script src="script.js"></script>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+<script src="footer.js"></script>
+</html>
